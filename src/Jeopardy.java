@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 
 public class Jeopardy implements ActionListener {
 	private JButton firstButton;
+	private JButton bButton;
 	private JButton secondButton;
 	private JButton thirdButton, fourthButton;
 	private JPanel quizPanel;
@@ -54,8 +55,10 @@ public class Jeopardy implements ActionListener {
 		frame.add(quizPanel);
 		// 6. Use the createButton method to set the value of firstButton
 		firstButton = createButton("0.1");
+		bButton = createButton("0.111");
 		// 7. Add the firstButton to the quizPanel
 		quizPanel.add(firstButton);
+		quizPanel.add(bButton);
 		// 8. Write the code to complete the createButton() method below. Check that
 		// your
 		// game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
@@ -68,10 +71,10 @@ public class Jeopardy implements ActionListener {
 		// 11. Add action listeners to the buttons (2 lines of code)
 		firstButton.addActionListener(this);
 		secondButton.addActionListener(this);
-
+		bButton.addActionListener(this);
 		// 12. Write the code to complete the actionPerformed() method below
 
-		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
+		// 13. Add buttons so that you have $200, $400, $600, $800 or $1000 questions
 
 		/*
 		 * [optional] Use the showImage or playSound methods when the user answers a
@@ -90,7 +93,7 @@ public class Jeopardy implements ActionListener {
 		// Create a new JButton
 		JButton n = new JButton();
 		// Set the text of the button to the dollarAmount
-		n.setText("dollarAmount");
+		n.setText(dollarAmount);
 		// Increment the buttonCount (this should make the layout vertical)
 		buttonCount++;
 		// Return your new button instead of the temporary button
@@ -108,12 +111,25 @@ public class Jeopardy implements ActionListener {
 		if (buttonPressed.equals(firstButton)) {
 			// Call the askQuestion() method
 			askQuestion("what is the meaning of life", "good", 1);
+			firstButton.setText("");
 		}
 		// Complete the code in the askQuestion() method. When you play the game, the
 		// score should change.
 
 		// If the buttonPressed was the secondButton
+		if (buttonPressed.equals(secondButton)) {
+			// Call the askQuestion() method
+			askQuestion("how r u", "lig", 2);
+			secondButton.setText("");
 
+		}
+
+		if (buttonPressed.equals(bButton)) {
+			// Call the askQuestion() method
+			askQuestion("life", "is bad", 10000);
+			bButton.setText("");
+
+		}
 		// Call the askQuestion() method with a harder question
 
 		// Clear the text on the button that was pressed (set the button text to
