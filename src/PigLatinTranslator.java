@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -30,16 +31,16 @@ void liphe () {
 	t.setPreferredSize(new Dimension (200, 25));
 	tt.setPreferredSize(new Dimension (200, 25));
 	b.addActionListener(this);
-	
+	f.pack();
 }
 	
 void ddddddddddddddd () {
 	
 	
 	String s = t.getText();
-	String ss = translate(s);
+	String ss = translate(s,f);
 	tt.setText(ss);
-	
+	f.pack();
 }
 	
 	
@@ -53,7 +54,7 @@ void ddddddddddddddd () {
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
 	ddddddddddddddd ();
-		
+	f.pack();
 }
 	
 	
@@ -118,8 +119,8 @@ public void actionPerformed(ActionEvent e) {
      * @param word The word in english
      * @return The pig latin version
      */
-     private static String pigWord(String word) {
-          int split = firstVowel(word);
+     private static String pigWord(String word, JFrame f) {
+          int split = firstVowel(word, f);
           return word.substring(split)+"-"+word.substring(0, split)+"ay";
      }
 
@@ -128,7 +129,7 @@ public void actionPerformed(ActionEvent e) {
      * @param s The sentence in English
      * @return The pig latin version
      */
-     public String translate(String s) {
+     public String translate(String s, JFrame f) {
           String latin = "";
           int i = 0;
           while (i < s.length()) {
@@ -149,24 +150,27 @@ public void actionPerformed(ActionEvent e) {
           }
      // Now we're at the end of a word, so translate it.
           int end = i;
-          latin = latin + pigWord(s.substring(begin, end));
+          latin = latin + pigWord(s.substring(begin, end), f);
           }
+      	f.pack();
           return latin;
      }
-
+        
      /**
      * Method to find the index of the first vowel in a word.
      * @param word The word to search
      * @return The index of the first vowel
      */
-     	private static int firstVowel(String word) {
+     	private static int firstVowel(String word, JFrame f) {
           word = word.toLowerCase();
+f.pack();
           for (int i=0; i < word.length(); i++)
                if (word.charAt(i)=='a' || word.charAt(i)=='e' ||
                     word.charAt(i)=='i' || word.charAt(i)=='o' ||
                     word.charAt(i)=='u')
                     return i;
                return 0;
+        
      }
 
 
