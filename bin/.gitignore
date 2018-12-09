@@ -5,9 +5,11 @@
 /CowTimer.class
 /FortuneTeller.class
 /GLT.class
+/GWorld.class
 /Jeopardy.class
 /MO.class
 /Movie.class
+/NEXT.class
 /NasS.class
 /NetflixQueue.class
 /PigLatinTranslator.class
@@ -30,5 +32,3 @@
 /snippet/
 /twitter4j-core-3.0.5.jar
 /up.jpg
-/NEXT.class
-/GWorld.class

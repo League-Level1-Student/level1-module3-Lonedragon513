@@ -5,6 +5,8 @@
 
 import java.applet.AudioClip;
 import java.io.IOException;
+import java.util.Timer;
+
 import javax.swing.JApplet;
 
 public class CowTimer {
@@ -15,9 +17,11 @@ public class CowTimer {
 
 	public static void main(String[] args) throws InterruptedException {
 		/* 1. Make a CowTimer, set the time and start it. */
+		CowTimer CT = new CowTimer();
 
+		CT.setTime(5);
+		CT.start();
 	}
-
 	private int minutes;
 
 	public void setTime(int minutes) {
@@ -30,7 +34,12 @@ public class CowTimer {
 		 * 2. Count down the minutes, print the current minute then sleep for 60 seconds
 		 * using Thread.sleep(int milliseconds).
 		 */
-
+		for (int i = minutes; i > 0; i--) {
+			System.out.println(i);Thread.sleep(59999);
+			
+		}
+		playSound("moo.wav");
+		
 		/*
 		 * 3. When the timer is finished, use the playSound method to play a moo sound.
 		 * You can use the .wav file in the default package, or you can download one
@@ -44,12 +53,12 @@ public class CowTimer {
 		sound.play();
 	}
 
-	private void speak(String stuffToSay) {
-		try {
-			Runtime.getRuntime().exec("say " + stuffToSay).waitFor();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	//private void speak(String stuffToSay) {
+	//	try {
+	//		Runtime.getRuntime().exec("say " + stuffToSay).waitFor();
+	//	} catch (Exception e) {
+	//.printStackTrace();
+	//	}
+	//}
 
 }
